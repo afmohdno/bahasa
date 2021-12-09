@@ -1,0 +1,11 @@
+{
+	"consonants" : ["b","c","d","f","g","h","j","k","kh","l","m","n","ng","ny","p","q","r","s","sy","t","w","y","z"],
+	"vowels" : ["a","e","i","o","u"],
+	"diphthongs" : {"a":["i","u","a"],"i":["u"],"o":["i"],"u":["a","i"]},
+	"non_first" : ["ng"],
+	"non_last" : ["ny","sy","j","g","f","c","kh","q","y","z"],
+	"non_diphthongs" : ["ae","ao","ea","ei","eo","eu","ee","ao","ao"],
+	"nasal" : ["m","n","ng","ny"],
+	"plosive" : ["b","c","d","f","g","k","kh","p","q","t"],
+	"fricative" : ["s","j","z"]
+}

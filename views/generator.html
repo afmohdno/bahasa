@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+  <title>{{title}}</title>
+  %include views/template/head.html
+</head>
+<body class="d-flex flex-column h-100">
+  <main class="flex-shrink-0">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        %include views/template/nav.html
+        <div class="welcome image border rounded shadow">
+          <div class="container">
+            <div class="search canvas mx-md-5 px-md-5">
+              <div class="input-group input-group-lg">
+                <input type="search" class="form-control" placeholder="Search review" aria-label="review" aria-describedby="main-search">
+                <button class="btn btn-primary" type="button" id="main-search">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="row justify-content-center">
+      <div class="col-10">
+      	<p>Sound: {{data["sound"]}}</p>
+      	<p>Syllable: {{data["syllable"]}}</p>
+      	<p>Word: {{data["word"]}}</p>
+      </div>
+    </div>
+  </main>
+  %include views/template/footer.html
+</body>
+</html>

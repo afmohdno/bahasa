@@ -1,0 +1,17 @@
+{ 
+	"products" : {
+		"category" : ["bakery", "kuih", "fruits", "supply", "dessert", "catering", "meal", "function"],
+		"cuisine" : ["malay", "indonesian", "nusantaran", "chinese", "indian", "italian", "french", "mediterranean", "western", "japanese", "korean", "thai", "vietnam", "others"],
+		"ingredients" : ["fish", "chicken", "beef", "lamb", "shrimp", "crab", "lobster", "oyster", "shellfish", "nuts", "rice", "noodle", "bread", "egg", "chilli", "vegetables", "spinach", "salad", "potato", "tomato", "cauliflower", "capsicum", "mushroom"],
+		"allergen" : ["dairy", "nuts", "eggs", "wheat", "fish", "shellfish"],
+		"halalness" : ["halal ingredients", "non-halal"],
+		"halalness-award" : ["halal-jakim", "halal-jejamu"]
+	},
+	"store" : {
+		"state" : [ "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Melaka", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Pulau Pinang", "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu" ],
+		"delivery_hour" : ["8:00AM", "9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:00PM", "3:00PM", "4:00PM", "5:00PM", "6:00PM", "7:00PM", "8:00PM", "9:00PM", "10:00PM", "11:00PM", "12:00AM"]
+	},
+	"us_manage" : ["store", "delivery", "order"],
+	"manage" : ["profile", "account"],
+	"privacy" : ["everyone", "myself only", "everyone except...", "nobody but..."]
+}

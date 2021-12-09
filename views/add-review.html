@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+  <title>{{title}}</title>
+  %include views/template/head.html
+</head>
+<body class="d-flex flex-column h-100">
+  <main class="flex-shrink-0">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        %include views/template/nav.html
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div id="form" class="my-3">
+          <form>
+            <div class="row py-2">
+              <h3>Product Details</h3>
+              <div class="col-md-6">
+                <label for="inputItemName" class="form-label">Item Name</label>
+                <input type="text" class="form-control" id="inputItemName">
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-md-6">
+                <label for="inputBrand" class="form-label">Brand</label>
+                <input type="text" class="form-control" id="inputBrand">
+              </div>
+              <div class="col-md-6">
+                <label for="inputModel" class="form-label">Model</label>
+                <input type="text" class="form-control" id="inputModel">
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-6">
+                <label for="inputAffiliateLink" class="form-label">Your Affiliate Link</label>
+                <input type="url" class="form-control" id="inputAffiliateLink" placeholder="http://short.url/referral">
+              </div>
+            </div>
+            <div class="row pt-3 pb-2 border-top mt-3">
+              <h3>Your Review</h3>
+              <div class="col-md-12 py-2">
+                <label for="inputReview" class="form-label">Review</label>
+                <input type="text" class="form-control" id="inputReview" placeholder="What is it used for?">
+              </div>
+              <div class="col-md-6 py-2">
+                <label for="inputGood" class="form-label">The Good</label>
+                <textarea class="form-control" id="inputGood" rows="3"></textarea>
+              </div>
+              <div class="col-md-6 py-2">
+                <label for="inputBad" class="form-label">The Bad</label>
+                <textarea class="form-control" id="inputBad" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  %include views/template/footer.html
+</body>

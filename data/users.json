@@ -1,0 +1,66 @@
+[
+	{ "username" : "jonasan",
+		"email" : "janasan@noemail.com",
+		"id" : "U001",
+		"user_url" : "jonasan",
+		"profile_img" : "/img/jonathan.jpeg",
+		"profile_banner" : "/img/banner.png",
+		"reviews_id" : ["r1", "r2"],
+		"profile" : {
+			"name" : "Jonathan Joestar",
+			"description" : "Sunlight yellow OOBAADORAIBU!!",
+			"website": "http://www.jonathan.com",
+			"contact" : "+60101023456",
+			"location" : {
+				"city" : "BBST",
+				"state" : "Selangor",
+				"country" : "Malaysia"
+			},
+			"follower" : 55,
+			"following" : 11,
+			"likes" : [],
+			"socmed" : {
+				"facebook" : "jonasan",
+				"twitter" : "jonasan",
+				"instagram" : "jonasan",
+				"tiktok" : "jonasan"
+			}
+		},
+		"setting" : {
+			"privacy" : [],
+			"password" : "hashed"
+		}
+	},
+	{ "username" : "ceasar",
+		"email" : "caesar@noemail.com",
+		"id" : "U002",
+		"user_url" : "shiizaa",
+		"profile_img" : "/img/caesar.jpeg",
+		"profile_banner" : "/img/banner.png",
+		"reviews_id" : ["r3"],
+		"profile" : {
+			"name" : "Caesar Zeppeli",
+			"description" : "I haven't met Jonathan actually.",
+			"website": "http://www.shiizaa.com",
+			"contact" : "+60101023455",
+			"location" : {
+				"city" : "BBST",
+				"state" : "Selangor",
+				"country" : "Malaysia"
+			},
+			"follower" : 55,
+			"following" : 11,
+			"likes" : [],
+			"socmed" : {
+				"facebook" : "shiizaa",
+				"twitter" : "shiizaa",
+				"instagram" : "shiizaa",
+				"tiktok" : "shiizaa"
+			}
+		},
+		"setting" : {
+			"privacy" : [],
+			"password" : "hashed"
+		}
+	}
+]
