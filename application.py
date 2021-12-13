@@ -21,48 +21,108 @@ rules = bahasa_rules
 
 con = rules["consonants"]
 vow = rules["vowels"]
-dip = rules["diphthongs"]
-non = rules["non_first"]
+dip_d = rules["diphthongs_dict"]
+dip_b = rules["diphthongs_between"]
+dip_e = rules["diphthongs_end"]
+dip_l = dip_b + dip_e
+non_l = rules["non_last"]
+nas = rules["nasal"]
+plo = rules["plosive"]
+afr = rules["africative"]
+s_structure = rules["syllable_structure"]
+non_plo = []
+for each in con:
+	if each not in plo: non_plo.append(each)
+non_nas = []
+for each in nas:
+	if each not in nas: non_nas.append(each)
+non_last = []
+for each in con:
+	if each not in non_l: non_last.append(each)
+non_c_c = []
+for each in con:
+	if each not in rules["non_cf"]: non_c_c.append(each)
+p_a = plo + afr
 all_letter = con + vow
+
+# usually kata dasar only have 2 or 3 syllables
+def syllable_constructor():
+	pattern = []
+	data = s_structure
+	while isinstance(data,dict):
+		if isinstance(data,list):
+			print data, "list data"
+			if data != []:
+				last = random.choice(data)
+				pattern.append(last)
+		else:
+			order = data.keys()
+			last = random.choice(order)
+			pattern.append(last)
+			data = data[last]
+	p = str("".join(pattern))
+	return syllable_generator(p)
 
 def syllable_generator(pattern):
 	sequence = []
+	print pattern, type(pattern)
 	last = ""
+	store = ""
 	for letter in pattern:
-		if letter is "c":
-			sequence.extend(random.choice(con))
-		elif letter is "v":
-			if last in vow:
-				sequence.extend(random.choice(dip[last]))
-			else:
-				sequence.extend(random.choice(vow))
-		elif letter is "d":
-			sequence.extend(random.choice(dip))
-		last = sequence[-1]
-		print sequence, last, 41
-		if last in non:
-			sequence.clear()
-			sequence.extend(random.choice(vow))
-
+		if sequence == []:
+			print "first letter"
+			if letter is "v":
+				last = "a"
+			elif letter is "c":
+				last = random.choice(con)
+		elif len(sequence) == (len(pattern)-1):
+			print "last letter"
+			if letter is "c":
+				last = random.choice(non_last)
+				if last == "y":
+					last = "i"
+				elif last == "w":
+					last = "u"
+			elif letter is "v":
+				if last in vow:
+					last = random.choice(dip_d[last])
+				else:
+					last = random.choice(vow)
+			elif letter is "d":
+				last = random.choice(dip_l)
+		else:
+			if letter is "c":
+				if last in con:
+					while last == sequence[-1]:
+						if last in nas:
+							last = random.choice(plo)
+						elif last in plo:
+							last = random.choice(non_plo)
+						else:
+							last = random.choice(non_c_c)
+				elif last in vow:
+					last = random.choice(con)
+					if last == "y":
+						last = "i"
+					elif last == "w":
+						last = "u"
+				else:
+					last = random.choice(con)
+			elif letter is "v":
+				if last in vow:
+					if dip_d[last] != "": # e never followed by any other vowels
+						last = random.choice(dip_d[last]) # only use possible v+v arrangements
+				else:
+					last = random.choice(vow)
+			elif letter is "d":
+				last = random.choice(dip_b)
+		print len(sequence),":",last
+		sequence.append(last)
 	syllable = "".join(sequence)
 
-	print sequence, 41
+	print sequence, 52
 
 	return syllable
-
-def word_generator(i):
-	pattern = ""
-	one_syllable_pattern = ["v","cv","cvc","cd","cdc"]
-	two_syllable_pattern = ["cvv","cvcv","cvvc","cvccvc","cvcvc","cdcvc","dc","vnv","vccv","vcvc"]
-
-	if i == 1:
-		pattern = random.choice(one_syllable_pattern)
-	elif i == 2:
-		pattern = random.choice(two_syllable_pattern)
-
-	print pattern, 55
-	word = syllable_generator(pattern)
-	return word
 
 # Define an handler for the root URL of our application.
 @route('/')
@@ -80,13 +140,12 @@ def main():
 	c0 = random.choice(con)
 	v0 = random.choice(vow)
 
-	syllable = syllable_generator("cvvcvc")
-	word = word_generator(2)
-	print syllable, 77
-
+	word1 = syllable_constructor()
+	word2 = syllable_constructor()
+	word3 = syllable_constructor()
 	data["sound"] = c0+v0
-	data["syllable"] = syllable
-	data["word"] = word
+	data["word"] = [word1,word2,word3]
+
 
 	return template("views/generator.html", title=title, meta=meta, data=data)
 
